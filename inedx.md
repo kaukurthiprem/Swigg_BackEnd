@@ -42,3 +42,28 @@ firm structur of body in post
     "offer": "50% off",
     "image": "hello.jpj"
 }
+
+
+
+
+API ROTERS URL
+
+        VENDORS:
+
+            VENDOR REGISTER:localhost:4000/vendor/register
+
+            VENDOR LOGIN:localhost:4000/vendor/login
+
+            GET ALL VENDOR DETILES WITH RELATED RECORDS:localhost:4000/vendor/all-vendors
+
+
+
+        FIRMS(RESTORENTS):localhost:4000/firm/add-firm
+
+
+            ADDING FIRM(RESTORUNT) HERE IN HEADERS  "KEY" AND "VALUE" IS MORE IMPORTANT
+              KEY:token
+              value:when you login a token is generarte 
+
+        PRODUCTS ADDING by firmID :localhost:4000/product/add-product/:firmId
+            
