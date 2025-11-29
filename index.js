@@ -12,8 +12,8 @@ const path = require('path');
 
 
 
-
-const PORT = 4000;
+//defining port number for local host ,, TO RUN IN GLOBAL USE""" process.env.PORT ""
+const PORT = process.env.PORT || 4000;
 dotEnv.config();
 
 mongoose.connect(process.env.MONGO_URL)
@@ -37,6 +37,6 @@ app.use('/product',productRoutes);
 app.use('/uploads', express.static('uploads'));
 
 
-app.use('/home',(req,res)=>{
+app.use('/',(req,res)=>{
     res.send("<h1>Welcome to Swigg");
 });
