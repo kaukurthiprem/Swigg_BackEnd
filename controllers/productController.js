@@ -4,6 +4,8 @@ const multer = require("multer");
 
 const Firm = require("../models/Firm");
 
+const path =require('path');
+
   //configuring multer storage to store uploaded images
     const multerStorage = multer.diskStorage({
         destination: (req, file, cb) => {

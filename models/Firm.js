@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Product = require('./Product');
 
+
 const firmschema = new mongoose.Schema({
         firmName: {type: String, required: true, unique: true},
         address: {type: String, required: true},
@@ -16,7 +17,7 @@ const firmschema = new mongoose.Schema({
     //reference to vendor model to establish relationship between firm and vendor
     vendor:[
         {
-            type: mongoose.Schema.Types.ObjectId, ref: 'vendor'
+            type: mongoose.Schema.Types.ObjectId, ref: 'Vendor'
 
         }],
 

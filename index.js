@@ -8,6 +8,7 @@ const firmRoutes = require('./roughts/FremRoutes');
 const productRoutes = require('./roughts/productRougtes');
 //to work with file and directory paths
 const path = require('path');
+const cors = require('cors');
 
 
 
@@ -16,17 +17,28 @@ const path = require('path');
 const PORT = process.env.PORT || 4000;
 dotEnv.config();
 
+app.use(cors())
+
+
+
+
 mongoose.connect(process.env.MONGO_URL)
-.then(() =>console.log("Connected to MongoDB"))
-.catch(() => console.log("Error connecting to MongoDB"));
+    .then(() => {
+        console.log("Connected to MongoDB");
 
+        app.listen(PORT, () => {
+            console.log(`Server running on port ${PORT}`);
+        });
+    })
+    .catch((err) => {
+        console.log("Error connecting to MongoDB:", err);
+    });
 
-app.listen(PORT, () => {
-    console.log(`Server is running and running at ${PORT}`);
-});
 
 //middleware to parse json request body (middleware is also nothing but a function that executes during the request-response cycle)
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 //importing vendor routes
 app.use('/vendor',vendorRoutes);
 //importing firm routes
@@ -37,6 +49,8 @@ app.use('/product',productRoutes);
 app.use('/uploads', express.static('uploads'));
 
 
-app.use('/',(req,res)=>{
+
+app.get('/',(req,res)=>{
     res.send("<h1>Welcome to Swigg");
 });
+

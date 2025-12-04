@@ -7,6 +7,7 @@ requrments:
  *jwt(jsonwebtoken) token -to conver the emails ot tocanes 
  *bcryptjs - to hash the password because it is the sensitive info
  *multer - to add images (it is an inbuilt function)
+ *cors
  
  
  ##connection to database

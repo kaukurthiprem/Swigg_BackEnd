@@ -9,6 +9,10 @@ const Vendor = require('../models/Vendor');
 const multer = require('multer');
 
 
+//importhing the image
+const path = require('path');
+
+
   //configuring multer storage to store uploaded images
     const multerStorage = multer.diskStorage({
         destination: (req, file, cb) => {

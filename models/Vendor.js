@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
 
+
 const vendorschema = new mongoose.Schema({
     username: {type: String, required: true},
     email: {type: String, required: true, unique: true},
     password: {type: String, required: true},
+    
 
     //reference to firm model to establish relationship between vendor and firm(resturant)
     firm:[
@@ -13,6 +15,6 @@ const vendorschema = new mongoose.Schema({
     
 });
 
-const vendor = mongoose.model('vendor', vendorschema);
+const Vendor = mongoose.model('Vendor', vendorschema);
 
-module.exports = vendor;
+module.exports = Vendor;

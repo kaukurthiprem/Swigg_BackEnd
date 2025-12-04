@@ -19,6 +19,7 @@ const secretKey = process.env.MYNAMEIS;
 
 const vendorRegister = async (req, res) => 
 {
+        console.log("BODY RECEIVED:", req.body);
       const { username, email, password } = req.body;
         try {
             
@@ -35,13 +36,17 @@ const vendorRegister = async (req, res) =>
             });
             await newvendor.save();
 
-            res.status(201).json({ message: "Vendor registered successfully" });
+            res.status(200).json({ message: "Vendor registered successfully" });
             console.log("registered successfully")
             } 
         catch (error) {
                     console.log(error);
                 res.status(500).json({ message: "Server error" });
             }
+
+
+            
+
 
 }
 
